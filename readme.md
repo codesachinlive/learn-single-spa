@@ -21,7 +21,7 @@ Lets now start with actual application setup, below command will help to create 
 
 ## Run application locally
 
-Check out this branch and run below commands
+Check out this branch and run below commands (from root-app folder)
 `npm install`
 
 `npm start`
