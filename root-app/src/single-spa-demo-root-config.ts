@@ -35,6 +35,15 @@ const applications = constructApplications({
 });
 const layoutEngine = constructLayoutEngine({ routes, applications });
 
+
+// To register navigation application, 
+// which will be shown in each page.
+registerApplication({
+  name: 'navigation-application',
+  app: () => System.import('@mfe/navigation'),
+  activeWhen: '/',
+})
+
 applications.forEach(registerApplication);
 layoutEngine.activate();
 start();
