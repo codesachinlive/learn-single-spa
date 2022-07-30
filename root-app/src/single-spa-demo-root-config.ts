@@ -4,9 +4,29 @@ import {
   constructRoutes,
   constructLayoutEngine,
 } from "single-spa-layout";
-import microfrontendLayout from "./microfrontend-layout.html";
+import { InputRoutesConfigObject } from "single-spa-layout/dist/types/isomorphic/constructRoutes";
+// import microfrontendLayout from "./microfrontend-layout.html";
 
-const routes = constructRoutes(microfrontendLayout);
+const JSON_LAYOUT: InputRoutesConfigObject = {
+  containerEl: '#wrapper',
+  base: '/',
+  "routes": [
+    {
+      "type": "route",
+      default: true,
+      "routes": [
+        {
+          "type": "h1", "routes": [{
+            "type": "#text",
+            "value": "learn-single-spa : Root Application"
+          }]
+        }
+      ]
+    }
+  ]
+};
+
+const routes = constructRoutes(JSON_LAYOUT);
 const applications = constructApplications({
   routes,
   loadApp({ name }) {
